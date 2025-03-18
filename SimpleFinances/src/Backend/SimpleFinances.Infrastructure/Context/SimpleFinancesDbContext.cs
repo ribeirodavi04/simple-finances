@@ -19,7 +19,10 @@ namespace SimpleFinances.Infrastructure.Context
 
         }
 
-        public DbSet<Cartao> Cartoes { get; set; }
+        public DbSet<User> Users { get; set; }
+        public DbSet<Income> Incomes { get; set; }
+        public DbSet<Card> Cards { get; set; }
+        public DbSet<Expense> Expenses { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

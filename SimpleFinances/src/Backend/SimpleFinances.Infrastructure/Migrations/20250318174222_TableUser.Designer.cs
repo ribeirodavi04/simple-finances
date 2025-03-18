@@ -12,8 +12,8 @@ using SimpleFinances.Infrastructure.Context;
 namespace SimpleFinances.Infrastructure.Migrations
 {
     [DbContext(typeof(SimpleFinancesDbContext))]
-    [Migration("20250318170429_TableCartao")]
-    partial class TableCartao
+    [Migration("20250318174222_TableUser")]
+    partial class TableUser
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -33,30 +33,65 @@ namespace SimpleFinances.Infrastructure.Migrations
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("CartaoId"));
 
-                    b.Property<string>("Banco")
+                    b.Property<string>("CartaoBanco")
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<DateTime?>("DataFechamento")
+                    b.Property<DateTime?>("CartaoDataFechamento")
                         .HasColumnType("timestamp with time zone");
 
-                    b.Property<DateTime?>("DataVencimento")
+                    b.Property<DateTime?>("CartaoDataVencimento")
                         .HasColumnType("timestamp with time zone");
 
-                    b.Property<decimal>("Limite")
+                    b.Property<Guid>("CartaoGuid")
+                        .HasColumnType("uuid");
+
+                    b.Property<decimal>("CartaoLimite")
                         .HasColumnType("numeric");
 
-                    b.Property<string>("Nome")
+                    b.Property<string>("CartaoNome")
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<string>("Tipo")
+                    b.Property<string>("CartaoTipo")
                         .IsRequired()
                         .HasColumnType("text");
 
                     b.HasKey("CartaoId");
 
                     b.ToTable("Cartoes");
+                });
+
+            modelBuilder.Entity("SimpleFinances.Domain.Entities.User", b =>
+                {
+                    b.Property<int>("UserId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("UserId"));
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("Password")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("ProfilePhotoURL")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<Guid>("UserGuid")
+                        .HasColumnType("uuid");
+
+                    b.Property<string>("UserName")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.HasKey("UserId");
+
+                    b.ToTable("Users");
                 });
 #pragma warning restore 612, 618
         }

@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using SimpleFinances.Infrastructure.Context;
@@ -11,9 +12,11 @@ using SimpleFinances.Infrastructure.Context;
 namespace SimpleFinances.Infrastructure.Migrations
 {
     [DbContext(typeof(SimpleFinancesDbContext))]
-    partial class SimpleFinancesDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250318180853_TableCard")]
+    partial class TableCard
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -60,46 +63,6 @@ namespace SimpleFinances.Infrastructure.Migrations
                     b.HasKey("CardId");
 
                     b.ToTable("Cards");
-                });
-
-            modelBuilder.Entity("SimpleFinances.Domain.Entities.Expense", b =>
-                {
-                    b.Property<int>("ExpenseId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("integer");
-
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("ExpenseId"));
-
-                    b.Property<decimal>("Amount")
-                        .HasColumnType("numeric");
-
-                    b.Property<int>("CardId")
-                        .HasColumnType("integer");
-
-                    b.Property<DateTime?>("DateExpense")
-                        .HasColumnType("timestamp with time zone");
-
-                    b.Property<string>("Description")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<bool>("IsRecurring")
-                        .HasColumnType("boolean");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<string>("TypeName")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<int>("UserId")
-                        .HasColumnType("integer");
-
-                    b.HasKey("ExpenseId");
-
-                    b.ToTable("Expenses");
                 });
 
             modelBuilder.Entity("SimpleFinances.Domain.Entities.Income", b =>

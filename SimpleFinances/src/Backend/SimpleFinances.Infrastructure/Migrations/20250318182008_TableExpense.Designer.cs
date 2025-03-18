@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using SimpleFinances.Infrastructure.Context;
@@ -11,9 +12,11 @@ using SimpleFinances.Infrastructure.Context;
 namespace SimpleFinances.Infrastructure.Migrations
 {
     [DbContext(typeof(SimpleFinancesDbContext))]
-    partial class SimpleFinancesDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250318182008_TableExpense")]
+    partial class TableExpense
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

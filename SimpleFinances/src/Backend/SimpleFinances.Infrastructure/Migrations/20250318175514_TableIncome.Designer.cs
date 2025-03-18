@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using SimpleFinances.Infrastructure.Context;
@@ -11,9 +12,11 @@ using SimpleFinances.Infrastructure.Context;
 namespace SimpleFinances.Infrastructure.Migrations
 {
     [DbContext(typeof(SimpleFinancesDbContext))]
-    partial class SimpleFinancesDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250318175514_TableIncome")]
+    partial class TableIncome
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -22,84 +25,41 @@ namespace SimpleFinances.Infrastructure.Migrations
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
 
-            modelBuilder.Entity("SimpleFinances.Domain.Entities.Card", b =>
+            modelBuilder.Entity("SimpleFinances.Domain.Entities.Cartao", b =>
                 {
-                    b.Property<int>("CardId")
+                    b.Property<int>("CartaoId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("integer");
 
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("CardId"));
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("CartaoId"));
 
-                    b.Property<string>("Bank")
+                    b.Property<string>("CartaoBanco")
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<DateTime?>("CardClosingDate")
+                    b.Property<DateTime?>("CartaoDataFechamento")
                         .HasColumnType("timestamp with time zone");
 
-                    b.Property<DateTime?>("CardDueDate")
+                    b.Property<DateTime?>("CartaoDataVencimento")
                         .HasColumnType("timestamp with time zone");
 
-                    b.Property<Guid>("CardGuid")
+                    b.Property<Guid>("CartaoGuid")
                         .HasColumnType("uuid");
 
-                    b.Property<decimal>("Limit")
+                    b.Property<decimal>("CartaoLimite")
                         .HasColumnType("numeric");
 
-                    b.Property<string>("Name")
+                    b.Property<string>("CartaoNome")
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<string>("TypeName")
+                    b.Property<string>("CartaoTipo")
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<int>("UserId")
-                        .HasColumnType("integer");
+                    b.HasKey("CartaoId");
 
-                    b.HasKey("CardId");
-
-                    b.ToTable("Cards");
-                });
-
-            modelBuilder.Entity("SimpleFinances.Domain.Entities.Expense", b =>
-                {
-                    b.Property<int>("ExpenseId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("integer");
-
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("ExpenseId"));
-
-                    b.Property<decimal>("Amount")
-                        .HasColumnType("numeric");
-
-                    b.Property<int>("CardId")
-                        .HasColumnType("integer");
-
-                    b.Property<DateTime?>("DateExpense")
-                        .HasColumnType("timestamp with time zone");
-
-                    b.Property<string>("Description")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<bool>("IsRecurring")
-                        .HasColumnType("boolean");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<string>("TypeName")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<int>("UserId")
-                        .HasColumnType("integer");
-
-                    b.HasKey("ExpenseId");
-
-                    b.ToTable("Expenses");
+                    b.ToTable("Cartoes");
                 });
 
             modelBuilder.Entity("SimpleFinances.Domain.Entities.Income", b =>
@@ -113,13 +73,7 @@ namespace SimpleFinances.Infrastructure.Migrations
                     b.Property<decimal>("Amount")
                         .HasColumnType("numeric");
 
-                    b.Property<DateTime>("DateReceived")
-                        .HasColumnType("timestamp with time zone");
-
-                    b.Property<bool>("IsRecurring")
-                        .HasColumnType("boolean");
-
-                    b.Property<string>("TypeName")
+                    b.Property<string>("Type")
                         .IsRequired()
                         .HasColumnType("text");
 
