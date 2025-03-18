@@ -6,4 +6,10 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\Shared\SimpleFinances.Exceptions\SimpleFinances.Exceptions.csproj" />
+    <ProjectReference Include="..\SimpleFinances.Domain\SimpleFinances.Domain.csproj" />
+    <ProjectReference Include="..\SimpleFinances.Infrastructure\SimpleFinances.Infrastructure.csproj" />
+  </ItemGroup>
+
 </Project>

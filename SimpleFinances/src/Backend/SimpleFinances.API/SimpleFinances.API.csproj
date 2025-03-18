@@ -7,7 +7,18 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.14">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Shared\SimpleFinances.Communication\SimpleFinances.Communication.csproj" />
+    <ProjectReference Include="..\..\Shared\SimpleFinances.Exceptions\SimpleFinances.Exceptions.csproj" />
+    <ProjectReference Include="..\SimpleFinances.Application\SimpleFinances.Application.csproj" />
+    <ProjectReference Include="..\SimpleFinances.Infrastructure\SimpleFinances.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>
