@@ -10,6 +10,7 @@ namespace SimpleFinances.Domain.Repositories.User
     {
         public Task<bool> ExistActiveUserWithEmail(string email);
         public Task<bool> ExistActiveUserWithIdentifier(Guid userGuid);
+        public Task<bool> ExistActiveUserWithUserName(string userName);
         public Task<Entities.User?> GetUserByEmailAndPassword(string email, string password);
     }
 }

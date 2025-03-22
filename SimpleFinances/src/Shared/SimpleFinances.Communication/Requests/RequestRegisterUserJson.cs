@@ -4,17 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SimpleFinances.Domain.Entities
+namespace SimpleFinances.Communication.Requests
 {
-    public class User
+    public class RequestRegisterUserJson
     {
-        public int UserId { get; set; }
-        public Guid UserGuid { get; set; }
         public string UserName { get; set; } = string.Empty;
-        public string Name { get; set; } = string.Empty;
+        public string Name {  get; set; } = string.Empty;
         public string Email { get; set; } = string.Empty;
         public string Password { get; set; } = string.Empty;
-        public string ProfilePhotoURL { get; set; } = string.Empty;
-
     }
 }

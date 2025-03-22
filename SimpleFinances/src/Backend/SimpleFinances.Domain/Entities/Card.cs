@@ -10,9 +10,9 @@ namespace SimpleFinances.Domain.Entities
     {
         public int CardId { get; set; }
         public Guid CardGuid { get; set; }
-        public string Name { get; set; }
-        public string TypeName { get; set; }
-        public string Bank { get; set; }
+        public string Name { get; set; } = string.Empty;
+        public string TypeName { get; set; } = string.Empty;
+        public string Bank { get; set; } = string.Empty;
         public decimal Limit { get; set; }
         public DateTime? CardDueDate { get; set; }
         public DateTime? CardClosingDate { get; set; }

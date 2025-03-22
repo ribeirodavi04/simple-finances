@@ -9,7 +9,7 @@ namespace SimpleFinances.Domain.Entities
     public class Income
     {
         public int IncomeId { get; set; }
-        public string TypeName { get; set; }
+        public string TypeName { get; set; } = string.Empty;
         public decimal Amount { get; set; }
         public DateTime DateReceived { get; set; }
         public bool IsRecurring { get; set; }

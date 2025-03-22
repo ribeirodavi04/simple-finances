@@ -34,6 +34,11 @@ namespace SimpleFinances.Infrastructure.DataAccess.Repositories
             return await _dbContext.Users.AnyAsync(user => user.UserGuid == userGuid);
         }
 
+        public async Task<bool> ExistActiveUserWithUserName(string userName)
+        {
+            return await _dbContext.Users.AnyAsync(user => user.UserName.Equals(userName));
+        }
+
         public async Task<User?> GetUserByEmailAndPassword(string email, string password)
         {
             return await _dbContext.Users.AsNoTracking().FirstOrDefaultAsync(user => user.Email.Equals(email) && user.Password.Equals(password));
