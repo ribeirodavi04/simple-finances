@@ -18,9 +18,9 @@ namespace SimpleFinances.Application.Services.Cryptography
 
         public string Encrypt(string password)
         {
-            var newPassword = $"{password} {_additionalKey}";
+            var newPassword = $"{password}{_additionalKey}";
 
-            var bytes = Encoding.UTF8.GetBytes(password);
+            var bytes = Encoding.UTF8.GetBytes(newPassword);
             var hashBytes = SHA512.HashData(bytes);
 
             return StringBytes(hashBytes);

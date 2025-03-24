@@ -7,9 +7,17 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="14.0.0" />
+    <PackageReference Include="FluentValidation" Version="11.11.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration" Version="9.0.3" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="9.0.3" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Binder" Version="9.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Shared\SimpleFinances.Communication\SimpleFinances.Communication.csproj" />
     <ProjectReference Include="..\..\Shared\SimpleFinances.Exceptions\SimpleFinances.Exceptions.csproj" />
     <ProjectReference Include="..\SimpleFinances.Domain\SimpleFinances.Domain.csproj" />
-    <ProjectReference Include="..\SimpleFinances.Infrastructure\SimpleFinances.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>

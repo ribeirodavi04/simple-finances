@@ -41,6 +41,7 @@ namespace SimpleFinances.Application.UseCases.User.Register
 
             var user = _mapper.Map<Domain.Entities.User>(requestUser);
             user.Password = _passwordEncripter.Encrypt(requestUser.Password);
+            user.UserGuid = Guid.NewGuid();
 
             await _userWriteOnlyRepository.Add(user);
             await _unityOfWork.Commit();
@@ -52,7 +53,7 @@ namespace SimpleFinances.Application.UseCases.User.Register
         }
 
 
-        public async Task Validate(RequestRegisterUserJson requestUser)
+        private async Task Validate(RequestRegisterUserJson requestUser)
         {
             var validator = new RegisterUserValidator();
             var result = validator.Validate(requestUser);

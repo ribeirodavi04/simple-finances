@@ -3,6 +3,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using SimpleFinances.Application.Services;
 using SimpleFinances.Application.Services.AutoMapper;
+using SimpleFinances.Application.Services.Cryptography;
+using SimpleFinances.Application.UseCases.User.Register;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,6 +18,8 @@ namespace SimpleFinances.Application
         public static void AddApplication(this IServiceCollection services, IConfiguration configuration)
         {
             AddAutoMapper(services);
+            AddUseCases(services);
+            AddPasswordEncripter(services, configuration);
         }
 
         public static void AddAutoMapper(IServiceCollection services) 
@@ -24,6 +28,17 @@ namespace SimpleFinances.Application
             {
                 options.AddProfile(new AutoMapping());
             }).CreateMapper());
+        }
+
+        private static void AddUseCases(IServiceCollection services) 
+        { 
+            services.AddScoped<IRegisterUserUseCase, RegisterUserUseCase>();
+        }
+
+        private static void AddPasswordEncripter(IServiceCollection services, IConfiguration configuration)
+        {
+            var additionalKey = configuration.GetValue<string>("Settings:Password:AdditionalKey");
+            services.AddScoped(option => new PasswordEncripter(additionalKey!));
         }
     }
 }
