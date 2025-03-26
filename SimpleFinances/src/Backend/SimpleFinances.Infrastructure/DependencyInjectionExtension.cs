@@ -4,10 +4,13 @@ using Microsoft.Extensions.DependencyInjection;
 using SimpleFinances.Domain.Repositories;
 using SimpleFinances.Domain.Repositories.Card;
 using SimpleFinances.Domain.Repositories.User;
+using SimpleFinances.Domain.Security.Tokens;
 using SimpleFinances.Infrastructure.Context;
 using SimpleFinances.Infrastructure.DataAccess;
 using SimpleFinances.Infrastructure.DataAccess.Repositories;
 using SimpleFinances.Infrastructure.Extensions;
+using SimpleFinances.Infrastructure.Security.Tokens.Access.Generator;
+using SimpleFinances.Infrastructure.Security.Tokens.Access.Validator;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,12 +25,22 @@ namespace SimpleFinances.Infrastructure
         {
             AddDbContext(services, configuration);
             AddRepositories(services);
+            AddTokens(services,configuration);
         }
 
         private static void AddDbContext(IServiceCollection services, IConfiguration configuration)
         {
             var connectionString = configuration.ConnectionString();
             services.AddDbContext<SimpleFinancesDbContext>(dbContextOptions => dbContextOptions.UseNpgsql(connectionString));
+        }
+
+        private static void AddTokens(IServiceCollection services, IConfiguration configuration) 
+        {
+            var expirationTimeMinutes = configuration.GetValue<uint>("Settings:Jwt:ExpirationTimeMinutes");
+            var signingKey = configuration.GetValue<string>("Settings:Jwt:SigningKey");
+
+            services.AddScoped<IAccessTokenGenerator>(option => new JwtTokenGenerator(expirationTimeMinutes, signingKey!));
+            services.AddScoped<IAccessTokenValidator>(option => new JwtTokenValidator(signingKey!));
         }
 
         private static void AddRepositories(IServiceCollection services)

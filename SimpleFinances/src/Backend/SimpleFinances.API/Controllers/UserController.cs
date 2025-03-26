@@ -11,7 +11,7 @@ namespace SimpleFinances.API.Controllers
     public class UserController : ControllerBase
     {
         [HttpPost]
-        [ProducesResponseType(typeof(ResponseRegisterUserJson), StatusCodes.Status201Created)]
+        [ProducesResponseType(typeof(ResponseRegisteredUserJson), StatusCodes.Status201Created)]
         public async Task<IActionResult> Register([FromServices] IRegisterUserUseCase useCase, [FromBody] RequestRegisterUserJson requestUser)
         {
             var result = await useCase.Execute(requestUser);

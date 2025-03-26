@@ -4,6 +4,7 @@ using SimpleFinances.Communication.Requests;
 using SimpleFinances.Communication.Responses;
 using SimpleFinances.Domain.Repositories;
 using SimpleFinances.Domain.Repositories.User;
+using SimpleFinances.Domain.Security.Tokens;
 using SimpleFinances.Exceptions;
 using SimpleFinances.Exceptions.ExceptionsBase;
 using System;
@@ -20,6 +21,7 @@ namespace SimpleFinances.Application.UseCases.User.Register
         private readonly IUserWriteOnlyRepository _userWriteOnlyRepository;
         private readonly IUserReadOnlyRepository _userReadOnlyRepository;
         private readonly IUnityOfWork _unityOfWork;
+        private readonly IAccessTokenGenerator _accessTokenGenerator;
         private readonly PasswordEncripter _passwordEncripter;
 
         public RegisterUserUseCase(
@@ -27,16 +29,18 @@ namespace SimpleFinances.Application.UseCases.User.Register
             IUserReadOnlyRepository userReadOnlyRepository,
             IMapper mapper,
             PasswordEncripter passwordEncripter,
-            IUnityOfWork unityOfWork)
+            IUnityOfWork unityOfWork,
+            IAccessTokenGenerator accessTokenGenerator)
         {
             _userWriteOnlyRepository = userWriteOnlyRepository;
             _userReadOnlyRepository = userReadOnlyRepository;
             _mapper = mapper;
             _passwordEncripter = passwordEncripter;
             _unityOfWork = unityOfWork;
+            _accessTokenGenerator = accessTokenGenerator;
         }
 
-        public async Task<ResponseRegisterUserJson> Execute(RequestRegisterUserJson requestUser)
+        public async Task<ResponseRegisteredUserJson> Execute(RequestRegisterUserJson requestUser)
         {
             await Validate(requestUser);
 
@@ -47,9 +51,13 @@ namespace SimpleFinances.Application.UseCases.User.Register
             await _userWriteOnlyRepository.Add(user);
             await _unityOfWork.Commit();
 
-            return new ResponseRegisterUserJson
+            return new ResponseRegisteredUserJson
             {
-                Name = user.Name
+                Name = user.Name,
+                Tokens = new ResponseTokensJson
+                {
+                    AccessToken = _accessTokenGenerator.GenerateToken(user.UserGuid)
+                }
             };
         }
 

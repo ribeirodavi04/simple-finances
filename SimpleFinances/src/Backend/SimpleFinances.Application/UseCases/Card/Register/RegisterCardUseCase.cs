@@ -24,7 +24,7 @@ namespace SimpleFinances.Application.UseCases.Card.Register
             _unityOfWork = unityOfWork;
         }
 
-        public async Task<ResponseRegisterCardJson> Execute(RequestRegisterCardJson requestCard)
+        public async Task<ResponseRegisteredCardJson> Execute(RequestRegisterCardJson requestCard)
         {
             var card = _mapper.Map<Domain.Entities.Card>(requestCard);
             card.CardGuid = Guid.NewGuid();
@@ -33,7 +33,7 @@ namespace SimpleFinances.Application.UseCases.Card.Register
             await _cardWriteOnlyRepository.Add(card);
             await _unityOfWork.Commit();
 
-            return new ResponseRegisterCardJson
+            return new ResponseRegisteredCardJson
             {
                 Name = card.Name
             };

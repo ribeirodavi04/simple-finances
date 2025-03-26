@@ -6,10 +6,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SimpleFinances.Application.UseCases.User.Register
+namespace SimpleFinances.Application.UseCases.Login.DoLogin
 {
-    public interface IRegisterUserUseCase
+    public interface IDoLoginUseCase
     {
-        public Task<ResponseRegisteredUserJson> Execute(RequestRegisterUserJson requestUser);
+        public Task<ResponseRegisteredUserJson> Execute(RequestLoginJson requestLogin);
     }
 }

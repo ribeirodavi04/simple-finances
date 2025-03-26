@@ -11,8 +11,8 @@ namespace SimpleFinances.API.Controllers
     public class CardController : ControllerBase
     {
         [HttpPost]
-        [ProducesResponseType(typeof(ResponseRegisterCardJson), StatusCodes.Status201Created)]
-        [ProducesResponseType(typeof(ResponseRegisterCardJson), StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(typeof(ResponseRegisteredCardJson), StatusCodes.Status201Created)]
+        [ProducesResponseType(typeof(ResponseRegisteredCardJson), StatusCodes.Status400BadRequest)]
         public async Task<IActionResult> Register([FromServices] IRegisterCardUseCase useCase, [FromBody] RequestRegisterCardJson requestCard)
         {
             var result = await useCase.Execute(requestCard);

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SimpleFinances.Communication.Responses
 {
-    public class ResponseRegisterCardJson
+    public class ResponseRegisteredCardJson
     {
         public string Name { get; set; } = string.Empty;
         public string TypeName { get; set; } = string.Empty;
