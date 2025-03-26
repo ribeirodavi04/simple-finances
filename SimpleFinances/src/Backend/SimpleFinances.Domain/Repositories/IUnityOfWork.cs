@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SimpleFinances.Domain.Repositories.User
+namespace SimpleFinances.Domain.Repositories
 {
     public interface IUnityOfWork
     {

@@ -4,6 +4,7 @@ using Microsoft.Extensions.DependencyInjection;
 using SimpleFinances.Application.Services;
 using SimpleFinances.Application.Services.AutoMapper;
 using SimpleFinances.Application.Services.Cryptography;
+using SimpleFinances.Application.UseCases.Card.Register;
 using SimpleFinances.Application.UseCases.User.Register;
 using System;
 using System.Collections.Generic;
@@ -33,6 +34,7 @@ namespace SimpleFinances.Application
         private static void AddUseCases(IServiceCollection services) 
         { 
             services.AddScoped<IRegisterUserUseCase, RegisterUserUseCase>();
+            services.AddScoped<IRegisterCardUseCase, RegisterCardUseCase>();
         }
 
         private static void AddPasswordEncripter(IServiceCollection services, IConfiguration configuration)

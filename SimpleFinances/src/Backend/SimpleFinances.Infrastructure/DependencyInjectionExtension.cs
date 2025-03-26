@@ -1,6 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using SimpleFinances.Domain.Repositories;
+using SimpleFinances.Domain.Repositories.Card;
 using SimpleFinances.Domain.Repositories.User;
 using SimpleFinances.Infrastructure.Context;
 using SimpleFinances.Infrastructure.DataAccess;
@@ -34,6 +36,9 @@ namespace SimpleFinances.Infrastructure
 
             services.AddScoped<IUserReadOnlyRepository, UserRepository>();
             services.AddScoped<IUserWriteOnlyRepository, UserRepository>();
+
+            services.AddScoped<ICardReadOnlyRepository, CardRepository>();
+            services.AddScoped<ICardWriteOnlyRepository, CardRepository>();
         }
     }
 }

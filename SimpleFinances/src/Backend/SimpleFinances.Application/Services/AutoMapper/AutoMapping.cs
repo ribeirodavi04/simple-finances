@@ -20,6 +20,8 @@ namespace SimpleFinances.Application.Services.AutoMapper
         {
             CreateMap<RequestRegisterUserJson, Domain.Entities.User>()
                 .ForMember(dest => dest.Password, opt => opt.Ignore());
+
+            CreateMap<RequestRegisterCardJson, Domain.Entities.Card>();
         }
     }
 }

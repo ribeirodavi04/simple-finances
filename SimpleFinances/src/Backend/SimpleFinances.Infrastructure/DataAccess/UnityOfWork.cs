@@ -1,4 +1,4 @@
-﻿using SimpleFinances.Domain.Repositories.User;
+﻿using SimpleFinances.Domain.Repositories;
 using SimpleFinances.Infrastructure.Context;
 using System;
 using System.Collections.Generic;

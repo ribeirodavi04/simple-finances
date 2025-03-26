@@ -2,6 +2,7 @@
 using SimpleFinances.Application.Services.Cryptography;
 using SimpleFinances.Communication.Requests;
 using SimpleFinances.Communication.Responses;
+using SimpleFinances.Domain.Repositories;
 using SimpleFinances.Domain.Repositories.User;
 using SimpleFinances.Exceptions;
 using SimpleFinances.Exceptions.ExceptionsBase;
