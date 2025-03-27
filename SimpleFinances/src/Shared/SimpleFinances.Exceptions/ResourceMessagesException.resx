@@ -132,10 +132,19 @@
   <data name="NAME_EMPTY" xml:space="preserve">
     <value>Nome não pode ser vázio.</value>
   </data>
+  <data name="NO_TOKEN" xml:space="preserve">
+    <value>Não possui token de autenticação.</value>
+  </data>
   <data name="PASSWORD_GREATER_THAN_OR_EQUAL_TO_6" xml:space="preserve">
     <value>A senha deve ser maior ou igual a 6.</value>
   </data>
+  <data name="UNKNOW_ERROR" xml:space="preserve">
+    <value>Erro desconhecido.</value>
+  </data>
   <data name="USERNAME_ALREADY_REGISTERED" xml:space="preserve">
     <value>Nome de usuário ja cadastrado.</value>
+  </data>
+  <data name="USER_WITHOUT_PERMISSION_ACCESS_RESOURCE" xml:space="preserve">
+    <value>O usuário não tem permissão.</value>
   </data>
 </root>

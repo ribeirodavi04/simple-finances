@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using SimpleFinances.Communication.Requests;
+using SimpleFinances.Communication.Responses;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,6 +14,7 @@ namespace SimpleFinances.Application.Services.AutoMapper
         public AutoMapping()
         {
             RequestToDomain();
+            DomainToResponse();
         }
 
 
@@ -22,6 +24,12 @@ namespace SimpleFinances.Application.Services.AutoMapper
                 .ForMember(dest => dest.Password, opt => opt.Ignore());
 
             CreateMap<RequestRegisterCardJson, Domain.Entities.Card>();
+            
+        }
+
+        private void DomainToResponse()
+        {
+            CreateMap< Domain.Entities.Card, ResponseRegisteredCardJson>();
         }
     }
 }

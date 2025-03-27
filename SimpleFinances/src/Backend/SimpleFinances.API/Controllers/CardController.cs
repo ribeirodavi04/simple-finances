@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using SimpleFinances.API.Attributes;
 using SimpleFinances.Application.UseCases.Card.Register;
 using SimpleFinances.Application.UseCases.User.Register;
 using SimpleFinances.Communication.Requests;
@@ -12,7 +13,7 @@ namespace SimpleFinances.API.Controllers
     {
         [HttpPost]
         [ProducesResponseType(typeof(ResponseRegisteredCardJson), StatusCodes.Status201Created)]
-        [ProducesResponseType(typeof(ResponseRegisteredCardJson), StatusCodes.Status400BadRequest)]
+        [AuthenticatedUser]
         public async Task<IActionResult> Register([FromServices] IRegisterCardUseCase useCase, [FromBody] RequestRegisterCardJson requestCard)
         {
             var result = await useCase.Execute(requestCard);

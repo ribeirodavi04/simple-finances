@@ -1,19 +1,21 @@
 using Microsoft.Extensions.Options;
 using Microsoft.OpenApi.Models;
+using SimpleFinances.API.Token;
+using SimpleFinances.API.Converters;
 using SimpleFinances.Application;
+using SimpleFinances.Domain.Security.Tokens;
 using SimpleFinances.Infrastructure;
-using SimpleFinances.Infrastructure.Extensions;
+using Microsoft.AspNetCore.Mvc.Filters;
+using SimpleFinances.API.Filters;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
-builder.Services.AddControllers();
-builder.Services.AddApplication(builder.Configuration);
-builder.Services.AddInfrastructure(builder.Configuration);
+builder.Services.AddControllers().AddJsonOptions(options => options.JsonSerializerOptions.Converters.Add(new StringConverter()));
+
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
-
 builder.Services.AddSwaggerGen(options =>
 {
     options.AddSecurityDefinition("Bearer", new Microsoft.OpenApi.Models.OpenApiSecurityScheme
@@ -46,6 +48,15 @@ builder.Services.AddSwaggerGen(options =>
     });
 });
 
+builder.Services.AddApplication(builder.Configuration);
+builder.Services.AddInfrastructure(builder.Configuration);
+builder.Services.AddScoped<ITokenProvider, HttpContextTokenValue>();
+
+builder.Services.AddMvc(options => options.Filters.Add(typeof(ExceptionFilter)));
+
+builder.Services.AddRouting(options => options.LowercaseUrls = true);
+
+builder.Services.AddHttpContextAccessor();
 
 var app = builder.Build();
 
