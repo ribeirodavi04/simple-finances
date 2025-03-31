@@ -5,6 +5,7 @@ using SimpleFinances.Application.Services;
 using SimpleFinances.Application.Services.AutoMapper;
 using SimpleFinances.Application.Services.Cryptography;
 using SimpleFinances.Application.UseCases.Card.Register;
+using SimpleFinances.Application.UseCases.Card.Update;
 using SimpleFinances.Application.UseCases.Login.DoLogin;
 using SimpleFinances.Application.UseCases.User.Register;
 using System;
@@ -37,6 +38,7 @@ namespace SimpleFinances.Application
             services.AddScoped<IRegisterUserUseCase, RegisterUserUseCase>();
             services.AddScoped<IDoLoginUseCase, DoLoginUseCase>();
             services.AddScoped<IRegisterCardUseCase, RegisterCardUseCase>();
+            services.AddScoped<IUpdateCardUseCase, UpdateCardUseCase>();
         }
 
         private static void AddPasswordEncripter(IServiceCollection services, IConfiguration configuration)

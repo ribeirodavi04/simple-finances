@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using SimpleFinances.Application.UseCases.Card.Validator;
 using SimpleFinances.Communication.Requests;
 using SimpleFinances.Communication.Responses;
 using SimpleFinances.Domain.Repositories;
@@ -26,7 +27,7 @@ namespace SimpleFinances.Application.UseCases.Card.Register
             _loggedUser = loggedUser;
         }
 
-        public async Task<ResponseRegisteredCardJson> Execute(RequestRegisterCardJson requestCard)
+        public async Task<ResponseRegisteredCardJson> Execute(RequestCardJson requestCard)
         {
             var loggedUser = await _loggedUser.User();
 
@@ -42,9 +43,9 @@ namespace SimpleFinances.Application.UseCases.Card.Register
             return _mapper.Map<ResponseRegisteredCardJson>(card);
         }
 
-        private async Task Validate(RequestRegisterCardJson requestCard, int userId)
+        private async Task Validate(RequestCardJson requestCard, int userId)
         {
-            var validator = new RegisterCardValidator();
+            var validator = new CardValidator();
             var result = validator.Validate(requestCard);
 
             var cardNameExist = await _cardReadOnlyRepository.ExistCardName(requestCard.Name, userId);

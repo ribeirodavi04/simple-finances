@@ -123,6 +123,9 @@
   <data name="CARD_NAME_EMPTY" xml:space="preserve">
     <value>Nome do cartão não inserido.</value>
   </data>
+  <data name="CARD_NOT_FOUND" xml:space="preserve">
+    <value>Cartão não encontrado.</value>
+  </data>
   <data name="CARD_TYPE_EMPTY" xml:space="preserve">
     <value>Tipo do cartão não inserido.</value>
   </data>

@@ -55,6 +55,7 @@ namespace SimpleFinances.Infrastructure
 
             services.AddScoped<ICardReadOnlyRepository, CardRepository>();
             services.AddScoped<ICardWriteOnlyRepository, CardRepository>();
+            services.AddScoped<ICardUpdateOnlyRepository, CardRepository>();
         }
 
         private static void AddLoggedUser(IServiceCollection services)

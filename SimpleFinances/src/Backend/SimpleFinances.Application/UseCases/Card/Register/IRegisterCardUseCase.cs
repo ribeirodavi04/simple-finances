@@ -10,6 +10,6 @@ namespace SimpleFinances.Application.UseCases.Card.Register
 {
     public interface IRegisterCardUseCase
     {
-        public Task<ResponseRegisteredCardJson> Execute(RequestRegisterCardJson requestCard);
+        public Task<ResponseRegisteredCardJson> Execute(RequestCardJson requestCard);
     }
 }

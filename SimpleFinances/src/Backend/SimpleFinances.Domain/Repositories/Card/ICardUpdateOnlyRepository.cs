@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace SimpleFinances.Domain.Repositories.Card
 {
-    public interface ICardWriteOnlyRepository
+    public interface ICardUpdateOnlyRepository
     {
-        public Task Add(Domain.Entities.Card card);
-        public Task Delete(int idCard);
+        Task<Entities.Card?> GetCardById(Entities.User user, int idCard);
+        void Update(Entities.Card card);
     }
 }

@@ -79,6 +79,15 @@ namespace SimpleFinances.Exceptions {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Cartão não encontrado..
+        /// </summary>
+        public static string CARD_NOT_FOUND {
+            get {
+                return ResourceManager.GetString("CARD_NOT_FOUND", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Tipo do cartão não inserido..
         /// </summary>
         public static string CARD_TYPE_EMPTY {
