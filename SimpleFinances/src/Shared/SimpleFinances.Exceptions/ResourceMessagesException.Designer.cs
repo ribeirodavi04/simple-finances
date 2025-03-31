@@ -61,6 +61,33 @@ namespace SimpleFinances.Exceptions {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Nome do cartão ja cadastrado..
+        /// </summary>
+        public static string CARD_NAME_ALREADY_EXIST {
+            get {
+                return ResourceManager.GetString("CARD_NAME_ALREADY_EXIST", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Nome do cartão não inserido..
+        /// </summary>
+        public static string CARD_NAME_EMPTY {
+            get {
+                return ResourceManager.GetString("CARD_NAME_EMPTY", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tipo do cartão não inserido..
+        /// </summary>
+        public static string CARD_TYPE_EMPTY {
+            get {
+                return ResourceManager.GetString("CARD_TYPE_EMPTY", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to O email não é valido..
         /// </summary>
         public static string EMAIL_ADDRESS {

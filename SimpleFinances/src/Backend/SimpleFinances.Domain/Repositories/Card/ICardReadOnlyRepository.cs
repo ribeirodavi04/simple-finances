@@ -10,7 +10,7 @@ namespace SimpleFinances.Domain.Repositories.Card
     {
         public Task<IList<Domain.Entities.Card>> Filter();
         public Task<Domain.Entities.Card?> GetCardById(Domain.Entities.User user, int idCard);
-
+        public Task<bool> ExistCardName(string name, int userId);
 
     }
 }

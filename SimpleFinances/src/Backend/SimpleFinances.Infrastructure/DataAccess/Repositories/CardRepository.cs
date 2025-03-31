@@ -30,6 +30,11 @@ namespace SimpleFinances.Infrastructure.DataAccess.Repositories
             _dbContext.Cards.Remove(card!);  
         }
 
+        public async Task<bool> ExistCardName(string name, int userId)
+        {
+            return await _dbContext.Cards.AsNoTracking().AnyAsync(card => string.Equals(card.Name, name) && card.UserId == userId);
+        }
+
         public Task<IList<Card>> Filter()
         {
             throw new NotImplementedException();
