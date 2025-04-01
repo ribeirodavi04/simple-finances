@@ -5,6 +5,7 @@ using SimpleFinances.Application.Services;
 using SimpleFinances.Application.Services.AutoMapper;
 using SimpleFinances.Application.Services.Cryptography;
 using SimpleFinances.Application.UseCases.Card.Delete;
+using SimpleFinances.Application.UseCases.Card.GetAll;
 using SimpleFinances.Application.UseCases.Card.GetById;
 using SimpleFinances.Application.UseCases.Card.Register;
 using SimpleFinances.Application.UseCases.Card.Update;
@@ -44,6 +45,7 @@ namespace SimpleFinances.Application
             services.AddScoped<IUpdateCardUseCase, UpdateCardUseCase>();
             services.AddScoped<IGetCardByIdUseCase, GetCardByIdUseCase>();
             services.AddScoped<IDeleteCardUseCase, DeleteCardUseCase>();
+            services.AddScoped<IGetAllCardsUseCase, GetAllCardsUseCase>();
         }
 
         private static void AddPasswordEncripter(IServiceCollection services, IConfiguration configuration)

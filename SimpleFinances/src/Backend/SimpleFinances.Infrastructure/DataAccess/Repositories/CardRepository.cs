@@ -36,9 +36,9 @@ namespace SimpleFinances.Infrastructure.DataAccess.Repositories
             return await _dbContext.Cards.AsNoTracking().AnyAsync(card => string.Equals(card.Name, name) && card.UserId == userId);
         }
 
-        public Task<IList<Card>> Filter()
+        public async Task<IList<Card>> GetAllCards(User user)
         {
-            throw new NotImplementedException();
+            return await _dbContext.Cards.AsNoTracking().Where(card => card.UserId == user.UserId).ToListAsync();
         }
 
         async Task<Card?> ICardReadOnlyRepository.GetCardById(User user, int idCard)

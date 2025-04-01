@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using SimpleFinances.API.Attributes;
 using SimpleFinances.Application.UseCases.Card.Delete;
+using SimpleFinances.Application.UseCases.Card.GetAll;
 using SimpleFinances.Application.UseCases.Card.GetById;
 using SimpleFinances.Application.UseCases.Card.Register;
 using SimpleFinances.Application.UseCases.Card.Update;
@@ -37,15 +38,30 @@ namespace SimpleFinances.API.Controllers
             return NoContent();
         }
 
+
         [HttpGet]
         [Route("{id}")]
         [ProducesResponseType(typeof(ResponseCardJson), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(ResponseErrorJson), StatusCodes.Status404NotFound)]
         [AuthenticatedUser]
-        public async Task<IActionResult> Register([FromServices] IGetCardByIdUseCase useCase, [FromRoute] int id)
+        public async Task<IActionResult> GetById([FromServices] IGetCardByIdUseCase useCase, [FromRoute] int id)
         {
             var response = await useCase.Execute(id);
             return Ok(response);
+        }
+
+        [HttpGet]
+        [ProducesResponseType(typeof(ResponseCardJson), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(ResponseErrorJson), StatusCodes.Status404NotFound)]
+        [AuthenticatedUser]
+        public async Task<IActionResult> GetAll([FromServices] IGetAllCardsUseCase useCase)
+        {
+            var response = await useCase.Execute();
+
+            if(response.Any())
+                return Ok(response);
+
+            return NoContent();
         }
 
         [HttpDelete]
