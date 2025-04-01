@@ -27,7 +27,7 @@ namespace SimpleFinances.Application.UseCases.Card.Register
             _loggedUser = loggedUser;
         }
 
-        public async Task<ResponseRegisteredCardJson> Execute(RequestCardJson requestCard)
+        public async Task<ResponseCardJson> Execute(RequestCardJson requestCard)
         {
             var loggedUser = await _loggedUser.User();
 
@@ -40,7 +40,7 @@ namespace SimpleFinances.Application.UseCases.Card.Register
             await _cardWriteOnlyRepository.Add(card);
             await _unityOfWork.Commit();
 
-            return _mapper.Map<ResponseRegisteredCardJson>(card);
+            return _mapper.Map<ResponseCardJson>(card);
         }
 
         private async Task Validate(RequestCardJson requestCard, int userId)

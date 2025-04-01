@@ -29,7 +29,7 @@ namespace SimpleFinances.Application.Services.AutoMapper
 
         private void DomainToResponse()
         {
-            CreateMap< Domain.Entities.Card, ResponseRegisteredCardJson>();
+            CreateMap< Domain.Entities.Card, ResponseCardJson>();
         }
     }
 }
