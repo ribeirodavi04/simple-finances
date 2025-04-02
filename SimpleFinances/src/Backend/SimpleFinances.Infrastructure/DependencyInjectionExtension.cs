@@ -3,6 +3,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using SimpleFinances.Domain.Repositories;
 using SimpleFinances.Domain.Repositories.Card;
+using SimpleFinances.Domain.Repositories.Income;
 using SimpleFinances.Domain.Repositories.User;
 using SimpleFinances.Domain.Security.Tokens;
 using SimpleFinances.Domain.Services.LoggedUser;
@@ -56,6 +57,10 @@ namespace SimpleFinances.Infrastructure
             services.AddScoped<ICardReadOnlyRepository, CardRepository>();
             services.AddScoped<ICardWriteOnlyRepository, CardRepository>();
             services.AddScoped<ICardUpdateOnlyRepository, CardRepository>();
+
+            services.AddScoped<IIncomeReadOnlyRepository, IncomeRepository>();
+            services.AddScoped<IIncomeWriteOnlyRepository, IncomeRepository>();
+            services.AddScoped<IIncomeUpdateOnlyRepository, IncomeRepository>();
         }
 
         private static void AddLoggedUser(IServiceCollection services)
