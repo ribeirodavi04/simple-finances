@@ -144,6 +144,9 @@
   <data name="INCOME_IS_RECURRING_EMPTY" xml:space="preserve">
     <value>Renda recorrende não pode ser vázio.</value>
   </data>
+  <data name="INCOME_NOT_FOUND" xml:space="preserve">
+    <value>Renda não encontrada.</value>
+  </data>
   <data name="INCOME_TYPE_NAME_EMPTY" xml:space="preserve">
     <value>O tipo de renda não pode ser vázio.</value>
   </data>

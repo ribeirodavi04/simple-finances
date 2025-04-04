@@ -10,6 +10,7 @@ using SimpleFinances.Application.UseCases.Card.GetById;
 using SimpleFinances.Application.UseCases.Card.Register;
 using SimpleFinances.Application.UseCases.Card.Update;
 using SimpleFinances.Application.UseCases.Income.Register;
+using SimpleFinances.Application.UseCases.Income.Update;
 using SimpleFinances.Application.UseCases.Login.DoLogin;
 using SimpleFinances.Application.UseCases.User.Register;
 using System;
@@ -52,6 +53,7 @@ namespace SimpleFinances.Application
 
             //incomes
             services.AddScoped<IRegisterIncomeUseCase, RegisterIncomeUseCase>();
+            services.AddScoped<IUpdateIncomeUseCase, UpdateIncomeUseCase>();
         }
 
         private static void AddPasswordEncripter(IServiceCollection services, IConfiguration configuration)

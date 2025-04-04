@@ -142,6 +142,15 @@ namespace SimpleFinances.Exceptions {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Renda não encontrada..
+        /// </summary>
+        public static string INCOME_NOT_FOUND {
+            get {
+                return ResourceManager.GetString("INCOME_NOT_FOUND", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to O tipo de renda não pode ser vázio..
         /// </summary>
         public static string INCOME_TYPE_NAME_EMPTY {
