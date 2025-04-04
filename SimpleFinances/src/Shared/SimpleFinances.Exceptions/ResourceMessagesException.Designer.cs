@@ -133,6 +133,33 @@ namespace SimpleFinances.Exceptions {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Renda recorrende não pode ser vázio..
+        /// </summary>
+        public static string INCOME_IS_RECURRING_EMPTY {
+            get {
+                return ResourceManager.GetString("INCOME_IS_RECURRING_EMPTY", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to O tipo de renda não pode ser vázio..
+        /// </summary>
+        public static string INCOME_TYPE_NAME_EMPTY {
+            get {
+                return ResourceManager.GetString("INCOME_TYPE_NAME_EMPTY", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to O nome de renda ja cadastrado..
+        /// </summary>
+        public static string INCOME_TYPE_NAME_EXIST {
+            get {
+                return ResourceManager.GetString("INCOME_TYPE_NAME_EXIST", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Nome não pode ser vázio..
         /// </summary>
         public static string NAME_EMPTY {

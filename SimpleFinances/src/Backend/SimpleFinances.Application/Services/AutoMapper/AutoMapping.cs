@@ -24,12 +24,14 @@ namespace SimpleFinances.Application.Services.AutoMapper
                 .ForMember(dest => dest.Password, opt => opt.Ignore());
 
             CreateMap<RequestCardJson, Domain.Entities.Card>();
+            CreateMap<RequestIncomeJson, Domain.Entities.Income>();
             
         }
 
         private void DomainToResponse()
         {
             CreateMap< Domain.Entities.Card, ResponseCardJson>();
+            CreateMap< Domain.Entities.Income, ResponseIncomeJson>();
         }
     }
 }

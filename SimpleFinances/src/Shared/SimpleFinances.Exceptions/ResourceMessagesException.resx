@@ -141,6 +141,15 @@
   <data name="EMAIL_OR_PASSWORD_INVALID" xml:space="preserve">
     <value>Email e/ou senha incorretos.</value>
   </data>
+  <data name="INCOME_IS_RECURRING_EMPTY" xml:space="preserve">
+    <value>Renda recorrende não pode ser vázio.</value>
+  </data>
+  <data name="INCOME_TYPE_NAME_EMPTY" xml:space="preserve">
+    <value>O tipo de renda não pode ser vázio.</value>
+  </data>
+  <data name="INCOME_TYPE_NAME_EXIST" xml:space="preserve">
+    <value>O nome de renda ja cadastrado.</value>
+  </data>
   <data name="NAME_EMPTY" xml:space="preserve">
     <value>Nome não pode ser vázio.</value>
   </data>
