@@ -10,6 +10,7 @@ using SimpleFinances.Application.UseCases.Card.GetById;
 using SimpleFinances.Application.UseCases.Card.Register;
 using SimpleFinances.Application.UseCases.Card.Update;
 using SimpleFinances.Application.UseCases.Income.Delete;
+using SimpleFinances.Application.UseCases.Income.GetAll;
 using SimpleFinances.Application.UseCases.Income.GetById;
 using SimpleFinances.Application.UseCases.Income.Register;
 using SimpleFinances.Application.UseCases.Income.Update;
@@ -58,6 +59,7 @@ namespace SimpleFinances.Application
             services.AddScoped<IUpdateIncomeUseCase, UpdateIncomeUseCase>();
             services.AddScoped<IDeleteIncomeUseCase, DeleteIncomeUseCase>();
             services.AddScoped<IGetIncomeByIdUseCase, GetIncomeByIdUseCase>();
+            services.AddScoped<IGetAllIncomesUseCase, GetAllIncomesUseCase>();
 
         }
 
