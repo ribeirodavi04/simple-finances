@@ -2,9 +2,11 @@
 using Microsoft.AspNetCore.Mvc;
 using SimpleFinances.API.Attributes;
 using SimpleFinances.Application.UseCases.Card.Delete;
+using SimpleFinances.Application.UseCases.Card.GetById;
 using SimpleFinances.Application.UseCases.Card.Register;
 using SimpleFinances.Application.UseCases.Card.Update;
 using SimpleFinances.Application.UseCases.Income.Delete;
+using SimpleFinances.Application.UseCases.Income.GetById;
 using SimpleFinances.Application.UseCases.Income.Register;
 using SimpleFinances.Application.UseCases.Income.Update;
 using SimpleFinances.Communication.Requests;
@@ -49,6 +51,18 @@ namespace SimpleFinances.API.Controllers
         {
             await useCase.Execute(id);
             return NoContent();
+        }
+
+
+        [HttpGet]
+        [Route("{id}")]
+        [ProducesResponseType(typeof(ResponseIncomeJson), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(ResponseErrorJson), StatusCodes.Status404NotFound)]
+        [AuthenticatedUser]
+        public async Task<IActionResult> GetById([FromServices] IGetIncomeByIdUseCase useCase, [FromRoute] int id)
+        {
+            var response = await useCase.Execute(id);
+            return Ok(response);
         }
     }
 }
