@@ -25,13 +25,14 @@ namespace SimpleFinances.Application.Services.AutoMapper
 
             CreateMap<RequestCardJson, Domain.Entities.Card>();
             CreateMap<RequestIncomeJson, Domain.Entities.Income>();
-            
+            CreateMap<RequestExpenseJson, Domain.Entities.Expense>();            
         }
 
         private void DomainToResponse()
         {
             CreateMap< Domain.Entities.Card, ResponseCardJson>();
             CreateMap< Domain.Entities.Income, ResponseIncomeJson>();
+            CreateMap< Domain.Entities.Expense, ResponseExpenseJson>();
         }
     }
 }

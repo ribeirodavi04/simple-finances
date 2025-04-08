@@ -133,6 +133,42 @@ namespace SimpleFinances.Exceptions {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Valor da despesa não pode ser vazio..
+        /// </summary>
+        public static string EXPENSE_AMOUNT_EMPTY {
+            get {
+                return ResourceManager.GetString("EXPENSE_AMOUNT_EMPTY", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Nome da despesa não pode ser vazio..
+        /// </summary>
+        public static string EXPENSE_NAME_EMPTY {
+            get {
+                return ResourceManager.GetString("EXPENSE_NAME_EMPTY", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Despesa não encontrada..
+        /// </summary>
+        public static string EXPENSE_NOT_FOUND {
+            get {
+                return ResourceManager.GetString("EXPENSE_NOT_FOUND", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tipo da despesa não pode ser vazio..
+        /// </summary>
+        public static string EXPENSE_TYPE_NAME_EMPTY {
+            get {
+                return ResourceManager.GetString("EXPENSE_TYPE_NAME_EMPTY", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Renda recorrende não pode ser vázio..
         /// </summary>
         public static string INCOME_IS_RECURRING_EMPTY {

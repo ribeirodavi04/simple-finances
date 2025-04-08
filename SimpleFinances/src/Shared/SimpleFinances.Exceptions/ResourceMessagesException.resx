@@ -141,6 +141,18 @@
   <data name="EMAIL_OR_PASSWORD_INVALID" xml:space="preserve">
     <value>Email e/ou senha incorretos.</value>
   </data>
+  <data name="EXPENSE_AMOUNT_EMPTY" xml:space="preserve">
+    <value>Valor da despesa não pode ser vazio.</value>
+  </data>
+  <data name="EXPENSE_NAME_EMPTY" xml:space="preserve">
+    <value>Nome da despesa não pode ser vazio.</value>
+  </data>
+  <data name="EXPENSE_NOT_FOUND" xml:space="preserve">
+    <value>Despesa não encontrada.</value>
+  </data>
+  <data name="EXPENSE_TYPE_NAME_EMPTY" xml:space="preserve">
+    <value>Tipo da despesa não pode ser vazio.</value>
+  </data>
   <data name="INCOME_IS_RECURRING_EMPTY" xml:space="preserve">
     <value>Renda recorrende não pode ser vázio.</value>
   </data>
