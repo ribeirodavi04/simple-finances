@@ -10,6 +10,7 @@ using SimpleFinances.Application.UseCases.Card.GetById;
 using SimpleFinances.Application.UseCases.Card.Register;
 using SimpleFinances.Application.UseCases.Card.Update;
 using SimpleFinances.Application.UseCases.Expense.Delete;
+using SimpleFinances.Application.UseCases.Expense.Filter;
 using SimpleFinances.Application.UseCases.Expense.GetById;
 using SimpleFinances.Application.UseCases.Expense.Register;
 using SimpleFinances.Application.UseCases.Expense.Update;
@@ -70,6 +71,7 @@ namespace SimpleFinances.Application
             services.AddScoped<IUpdateExpenseUseCase, UpdateExpenseUseCase>();
             services.AddScoped<IDeleteExpenseUseCase, DeleteExpenseUseCase>();
             services.AddScoped<IGetExpenseByIdUseCase, GetExpenseByIdUseCase>();
+            services.AddScoped<IFilterExpenseUseCase, FilterExpenseUseCase>();
 
         }
 

@@ -6,6 +6,7 @@ using SimpleFinances.Application.UseCases.Card.GetById;
 using SimpleFinances.Application.UseCases.Card.Register;
 using SimpleFinances.Application.UseCases.Card.Update;
 using SimpleFinances.Application.UseCases.Expense.Delete;
+using SimpleFinances.Application.UseCases.Expense.Filter;
 using SimpleFinances.Application.UseCases.Expense.GetById;
 using SimpleFinances.Application.UseCases.Expense.Register;
 using SimpleFinances.Application.UseCases.Expense.Update;
@@ -62,5 +63,21 @@ namespace SimpleFinances.API.Controllers
             var response = await useCase.Execute(id);
             return Ok(response);
         }
+
+        [HttpPost("filter")]
+        [ProducesResponseType(typeof(ResponseExpenseJson), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(ResponseErrorJson), StatusCodes.Status204NoContent)]
+        [AuthenticatedUser]
+        public async Task<IActionResult> Filter([FromServices] IFilterExpenseUseCase useCase, [FromBody] RequestFilterExpenseJson requestFilter)
+        {
+            var response = await useCase.Execute(requestFilter);
+
+            if (response.Any())
+                return Ok(response);
+
+            return NoContent();
+        }
+
+
     }
 }

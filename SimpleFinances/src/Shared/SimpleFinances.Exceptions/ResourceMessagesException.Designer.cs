@@ -169,6 +169,24 @@ namespace SimpleFinances.Exceptions {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Ambas datas devem ser fornecidas..
+        /// </summary>
+        public static string FILTER_EXPENSE_DATES_INVALID {
+            get {
+                return ResourceManager.GetString("FILTER_EXPENSE_DATES_INVALID", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to O valor &quot;de&quot; deve ser menor que o valor &quot;até&quot;..
+        /// </summary>
+        public static string FILTER_EXPENSE_VALUE_FROM_VALUE_TO_iNVALID {
+            get {
+                return ResourceManager.GetString("FILTER_EXPENSE_VALUE_FROM_VALUE_TO_iNVALID", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Renda recorrende não pode ser vázio..
         /// </summary>
         public static string INCOME_IS_RECURRING_EMPTY {

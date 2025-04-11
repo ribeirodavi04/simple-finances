@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SimpleFinances.Domain.DTOs;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,6 +9,7 @@ namespace SimpleFinances.Domain.Repositories.Expense
 {
     public interface IExpenseReadOnlyRepository
     {
+        public Task<IList<Domain.Entities.Expense>> Filter(Domain.Entities.User user, FilterExpenseDTO filters);
         public Task<IList<Domain.Entities.Expense>> GetAllExpenses(Domain.Entities.User user);
         public Task<Domain.Entities.Expense?> GetExpenseById(Domain.Entities.User user, int idExpense);
     }
