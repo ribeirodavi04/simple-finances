@@ -1,4 +1,5 @@
 ﻿using Moq;
+using SimpleFinances.Domain.Entities;
 using SimpleFinances.Domain.Repositories.Card;
 using System;
 using System.Collections.Generic;
@@ -15,6 +16,11 @@ namespace Common.TestUtilities.Repositories.Card
         public CardReadOnlyRepositoryBuilder()
         {
             _repository = new Mock<ICardReadOnlyRepository>();
+        }
+
+        public void ExistCardWithName(string cardName, int userId)
+        {
+            _repository.Setup(repository => repository.ExistCardName(cardName, userId)).ReturnsAsync(true);
         }
 
         public ICardReadOnlyRepository Build()
