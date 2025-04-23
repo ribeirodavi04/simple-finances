@@ -15,15 +15,19 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimpleFinances.Infrastructu
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimpleFinances.Domain", "src\Backend\SimpleFinances.Domain\SimpleFinances.Domain.csproj", "{612A5F74-4E4C-44D3-84DA-1075C7245931}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleFinances.Application", "src\Backend\SimpleFinances.Application\SimpleFinances.Application.csproj", "{20B84CC0-C007-4BEF-8DE1-EA79CD6ADBDA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimpleFinances.Application", "src\Backend\SimpleFinances.Application\SimpleFinances.Application.csproj", "{20B84CC0-C007-4BEF-8DE1-EA79CD6ADBDA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleFinances.API", "src\Backend\SimpleFinances.API\SimpleFinances.API.csproj", "{084CDB89-B3D3-423B-A7D2-B005D7726C41}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimpleFinances.API", "src\Backend\SimpleFinances.API\SimpleFinances.API.csproj", "{084CDB89-B3D3-423B-A7D2-B005D7726C41}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleFinances.Communication", "src\Shared\SimpleFinances.Communication\SimpleFinances.Communication.csproj", "{55B8E82C-84EC-4C5C-B747-AB50434EC831}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimpleFinances.Communication", "src\Shared\SimpleFinances.Communication\SimpleFinances.Communication.csproj", "{55B8E82C-84EC-4C5C-B747-AB50434EC831}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleFinances.Exceptions", "src\Shared\SimpleFinances.Exceptions\SimpleFinances.Exceptions.csproj", "{5B03D09A-BA94-4A54-B7AF-A63BCC54A94B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimpleFinances.Exceptions", "src\Shared\SimpleFinances.Exceptions\SimpleFinances.Exceptions.csproj", "{5B03D09A-BA94-4A54-B7AF-A63BCC54A94B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common.TestUtilities", "tests\Common.TestUtilities\Common.TestUtilities.csproj", "{B25D9009-D620-445D-AB07-400F46207388}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Common.TestUtilities", "tests\Common.TestUtilities\Common.TestUtilities.csproj", "{B25D9009-D620-445D-AB07-400F46207388}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UseCases.Teste", "tests\UseCases.Teste\UseCases.Teste.csproj", "{4C859079-B44B-49E5-8EF2-5CEACEA5E41A}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Validators.Test", "tests\Validators.Test\Validators.Test.csproj", "{0D1EE21B-0D1A-4268-A4CD-A589E21AAF2F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -59,6 +63,14 @@ Global
 		{B25D9009-D620-445D-AB07-400F46207388}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B25D9009-D620-445D-AB07-400F46207388}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B25D9009-D620-445D-AB07-400F46207388}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4C859079-B44B-49E5-8EF2-5CEACEA5E41A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4C859079-B44B-49E5-8EF2-5CEACEA5E41A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4C859079-B44B-49E5-8EF2-5CEACEA5E41A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4C859079-B44B-49E5-8EF2-5CEACEA5E41A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0D1EE21B-0D1A-4268-A4CD-A589E21AAF2F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0D1EE21B-0D1A-4268-A4CD-A589E21AAF2F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0D1EE21B-0D1A-4268-A4CD-A589E21AAF2F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0D1EE21B-0D1A-4268-A4CD-A589E21AAF2F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -73,6 +85,8 @@ Global
 		{55B8E82C-84EC-4C5C-B747-AB50434EC831} = {5E773FE4-66A1-4923-9FD7-886168F6C945}
 		{5B03D09A-BA94-4A54-B7AF-A63BCC54A94B} = {5E773FE4-66A1-4923-9FD7-886168F6C945}
 		{B25D9009-D620-445D-AB07-400F46207388} = {FF35E4B9-5331-45BE-807B-9A4B204AF37B}
+		{4C859079-B44B-49E5-8EF2-5CEACEA5E41A} = {FF35E4B9-5331-45BE-807B-9A4B204AF37B}
+		{0D1EE21B-0D1A-4268-A4CD-A589E21AAF2F} = {FF35E4B9-5331-45BE-807B-9A4B204AF37B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {210A5876-D467-4DF5-8829-1E284BAF1067}
