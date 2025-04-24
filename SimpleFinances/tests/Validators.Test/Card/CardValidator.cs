@@ -8,14 +8,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Validators.Test.Card.Register
+namespace Validators.Test.Card
 {
-    public class RegisterCardValidator
+    public class CardValidator
     {
         [Fact]
         public void Success()
         {
-            var validator = new CardValidator();
+            var validator = new SimpleFinances.Application.UseCases.Card.Validator.CardValidator();
 
             //Arrange 
             var request = RequestCardJsonBuilder.Build();
@@ -24,20 +24,20 @@ namespace Validators.Test.Card.Register
             var result = validator.Validate(request);
 
             //Assert
-            result.IsValid.Should().BeTrue();   
+            result.IsValid.Should().BeTrue();
         }
 
         [Fact]
         public void Error_Name_Empty()
         {
-            var validator = new CardValidator();
+            var validator = new SimpleFinances.Application.UseCases.Card.Validator.CardValidator();
 
             //Arrange
             var request = RequestCardJsonBuilder.Build();
             request.Name = string.Empty;
 
             //Act
-            var result = validator.Validate(request);   
+            var result = validator.Validate(request);
 
             //Assert
             result.IsValid.Should().BeFalse();
@@ -47,7 +47,7 @@ namespace Validators.Test.Card.Register
         [Fact]
         public void Error_Type_Name_Empty()
         {
-            var validator = new CardValidator();
+            var validator = new SimpleFinances.Application.UseCases.Card.Validator.CardValidator();
 
             //Arrange
             var request = RequestCardJsonBuilder.Build();
