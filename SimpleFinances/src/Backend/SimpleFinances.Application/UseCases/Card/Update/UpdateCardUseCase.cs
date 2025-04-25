@@ -23,13 +23,13 @@ namespace SimpleFinances.Application.UseCases.Card.Update
         private readonly ILoggedUser _loggedUser;
 
         public UpdateCardUseCase(
-            ICardUpdateOnlyRepository cardUpdateeOnlyRepository,
+            ICardUpdateOnlyRepository cardUpdateOnlyRepository,
             ICardReadOnlyRepository cardReadOnlyRepository, 
             IUnityOfWork unityOfWork, 
             IMapper mapper, 
             ILoggedUser loggedUser)
         {
-            _cardUpdateOnlyRepository = cardUpdateeOnlyRepository;
+            _cardUpdateOnlyRepository = cardUpdateOnlyRepository;
             _cardReadOnlyRepository = cardReadOnlyRepository;
             _unityOfWork = unityOfWork;
             _mapper = mapper;
