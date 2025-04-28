@@ -1,8 +1,8 @@
 ﻿using Common.TestUtilities.Entities;
 using Common.TestUtilities.LoggedUser;
-using Common.TestUtilities.Repositories;
+using Common.TestUtilities.Mapper;
 using Common.TestUtilities.Repositories.Card;
-using SimpleFinances.Application.UseCases.Card.Delete;
+using SimpleFinances.Application.UseCases.Card.GetById;
 using SimpleFinances.Domain.Entities;
 using SimpleFinances.Exceptions;
 using SimpleFinances.Exceptions.ExceptionsBase;
@@ -12,33 +12,37 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace UseCases.Test.Card.Delete
+namespace UseCases.Test.Card.GetById
 {
-    public class DeleteCardUseCaseTest
+    public class GetCardByIdUseCaseTest
     {
-        private static DeleteCardUseCase CreateUseCase(User user, SimpleFinances.Domain.Entities.Card? card = null)
+        private static GetCardByIdUseCase CreateUseCase(User user, SimpleFinances.Domain.Entities.Card? card = null)
         {
             var loggedUser = LoggedUserBuilder.Build(user);
+            var mapper = MapperBuilder.Build();
             var cardReadOnlyRepository = new CardReadOnlyRepositoryBuilder().GetCardById(user, card).Build();
-            var cardWriteOnlyRepository = CardWriteOnlyRepositoryBuilder.Build(); 
-            var unityOfWork = UnityOfWorkBuilder.Build();
 
-            return new DeleteCardUseCase(cardWriteOnlyRepository, cardReadOnlyRepository, unityOfWork, loggedUser);
+            return new GetCardByIdUseCase(cardReadOnlyRepository, mapper, loggedUser);
         }
 
         [Fact]
         public async Task Success()
         {
             //Arrange
-            var user = new UserBuilder().Build();
+            var user = new UserBuilder().Build();   
             var card = new CardBuilder().Build();
 
             var useCase = CreateUseCase(user, card);
 
-            //Act & Assertion
-            Func<Task> act = async () => await useCase.Execute(card.CardId);
-            await act();
+            //Act
+            var result = await useCase.Execute(card.CardId);
 
+            //Assert
+            Assert.NotNull(result);
+            Assert.Equal(card.Name, result.Name);
+            Assert.Equal(card.Bank, result.Bank);
+            Assert.Equal(card.TypeName, result.TypeName);
+            Assert.Equal(card.Limit, result.Limit);
         }
 
         [Fact]
@@ -53,8 +57,8 @@ namespace UseCases.Test.Card.Delete
             Func<Task> act = async () => await useCase.Execute(1);
 
             //Assert
-            var expection = await Assert.ThrowsAsync<SimpleFinancesException>(act);
-            Assert.Equal(ResourceMessagesException.CARD_NOT_FOUND, expection.Message);
+            var exception = await Assert.ThrowsAsync<SimpleFinancesException>(act);
+            Assert.Equal(ResourceMessagesException.CARD_NOT_FOUND, exception.Message);
         }
     }
 }
