@@ -23,6 +23,13 @@ namespace Common.TestUtilities.Repositories.Card
             _repository.Setup(repository => repository.ExistCardName(cardName, userId)).ReturnsAsync(true);
         }
 
+        public CardReadOnlyRepositoryBuilder GetCardById(User user, SimpleFinances.Domain.Entities.Card? card)
+        {
+            if(card is not null)
+                _repository.Setup(repository => repository.GetCardById(user, card.CardId)).ReturnsAsync(card);
+            return this;
+        }
+
         public ICardReadOnlyRepository Build()
         {
             return _repository.Object;

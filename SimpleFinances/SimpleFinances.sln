@@ -25,7 +25,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimpleFinances.Exceptions",
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Common.TestUtilities", "tests\Common.TestUtilities\Common.TestUtilities.csproj", "{B25D9009-D620-445D-AB07-400F46207388}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UseCases.Teste", "tests\UseCases.Teste\UseCases.Teste.csproj", "{4C859079-B44B-49E5-8EF2-5CEACEA5E41A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UseCases.Test", "tests\UseCases.Teste\UseCases.Test.csproj", "{4C859079-B44B-49E5-8EF2-5CEACEA5E41A}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Validators.Test", "tests\Validators.Test\Validators.Test.csproj", "{0D1EE21B-0D1A-4268-A4CD-A589E21AAF2F}"
 EndProject
