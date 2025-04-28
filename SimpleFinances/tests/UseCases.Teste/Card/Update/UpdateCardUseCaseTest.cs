@@ -44,10 +44,10 @@ namespace UseCases.Teste.Card.Update
         {
             //Arrange
             var request = RequestCardJsonBuilder.Build();
-            var card = new CardBuilder().Build();
             var user = new UserBuilder().Build();
-            card.UserId = user.UserId;
+            var card = CardBuilder.Build(user);
 
+            
             var useCase = CreateUseCase(user, card.CardId, card);
 
             //Act
@@ -68,9 +68,8 @@ namespace UseCases.Teste.Card.Update
         {
             //Arrange
             var request = RequestCardJsonBuilder.Build();
-            var card = new CardBuilder().Build();
             var user = new UserBuilder().Build();
-            card.UserId = user.UserId;
+            var card = CardBuilder.Build(user);
 
             var useCase = CreateUseCase(user, card.CardId, card, cardFound: false);
 
@@ -89,9 +88,9 @@ namespace UseCases.Teste.Card.Update
             var request = RequestCardJsonBuilder.Build();
             request.Name = string.Empty;
 
-            var card = new CardBuilder().Build();
             var user = new UserBuilder().Build();
-            card.UserId = user.UserId;
+            var card = CardBuilder.Build(user);
+
 
             var useCase = CreateUseCase(user, card.CardId, card);
 
@@ -110,9 +109,8 @@ namespace UseCases.Teste.Card.Update
             var request = RequestCardJsonBuilder.Build();
             request.TypeName = string.Empty;
 
-            var card = new CardBuilder().Build();
             var user = new UserBuilder().Build();
-            card.UserId = user.UserId;
+            var card = CardBuilder.Build(user);
 
             var useCase = CreateUseCase(user, card.CardId, card);
 
@@ -129,9 +127,8 @@ namespace UseCases.Teste.Card.Update
         {
             //Arrange
             var request = RequestCardJsonBuilder.Build();
-            var card = new CardBuilder().Build();
             var user = new UserBuilder().Build();
-            card.UserId = user.UserId;
+            var card = CardBuilder.Build(user);
 
             var useCase = CreateUseCase(user, card.CardId, card, cardFound: true, request.Name);
 

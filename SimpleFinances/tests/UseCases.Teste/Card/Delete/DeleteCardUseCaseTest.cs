@@ -31,7 +31,7 @@ namespace UseCases.Test.Card.Delete
         {
             //Arrange
             var user = new UserBuilder().Build();
-            var card = new CardBuilder().Build();
+            var card = CardBuilder.Build(user);
 
             var useCase = CreateUseCase(user, card);
 

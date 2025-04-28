@@ -30,6 +30,14 @@ namespace Common.TestUtilities.Repositories.Card
             return this;
         }
 
+        public CardReadOnlyRepositoryBuilder GetAllCards(User user, IList<SimpleFinances.Domain.Entities.Card>? cards)
+        {
+            if (cards is not null)
+                _repository.Setup(repository => repository.GetAllCards(user)).ReturnsAsync(cards);
+
+            return this;
+        }
+
         public ICardReadOnlyRepository Build()
         {
             return _repository.Object;
