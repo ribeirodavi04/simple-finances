@@ -99,6 +99,7 @@ namespace UseCases.Teste.Card.Register
             //Arrange
             var request = RequestCardJsonBuilder.Build();
             var user = new UserBuilder().Build();
+
             var useCase = CreateUseCase(user, request.Name);
 
             //Act

@@ -70,5 +70,22 @@ namespace UseCases.Test.Income.Register
             var exception = await Assert.ThrowsAsync<ErrorOnValidationException>(act);
             Assert.Contains(ResourceMessagesException.INCOME_TYPE_NAME_EMPTY, exception.ErrorsMessages);
         }
+
+        [Fact]
+        public async Task Error_Income_TypeName_Already_Registered()
+        {
+            //Arrange
+            var request = RequestIncomeJsonBuilder.Build();
+            var user = new UserBuilder().Build();
+
+            var useCase = CreateUseCase(user, request.TypeName);
+
+            //Act
+            Func<Task> act = async () => await useCase.Execute(request);
+
+            //Assert
+            var exception = await Assert.ThrowsAsync<ErrorOnValidationException>(act);
+            Assert.Contains(ResourceMessagesException.INCOME_TYPE_NAME_EXIST, exception.ErrorsMessages);
+        }
     }
 }
