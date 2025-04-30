@@ -14,7 +14,6 @@ namespace SimpleFinances.Application.UseCases.Income.Validator
         public IncomeValidator() 
         {
             RuleFor(income => income.TypeName).NotEmpty().WithMessage(ResourceMessagesException.INCOME_TYPE_NAME_EMPTY);
-            RuleFor(income => income.IsRecurring).NotEmpty().WithMessage(ResourceMessagesException.INCOME_IS_RECURRING_EMPTY);
         }
     }
 }

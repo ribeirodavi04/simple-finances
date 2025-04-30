@@ -14,9 +14,8 @@ namespace Validators.Test.Expense
         [Fact]
         public void Success()
         {
-            var validator = new SimpleFinances.Application.UseCases.Expense.Validator.ExpenseValidator();
-
             //Arrange 
+            var validator = new SimpleFinances.Application.UseCases.Expense.Validator.ExpenseValidator();
             var request = RequestExpenseJsonBuilder.Build();
 
             //Act

@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Validators.Test.Card
 {
-    public class CardValidator
+    public class CardValidatorTest
     {
         [Fact]
         public void Success()
