@@ -10,6 +10,25 @@ namespace Common.TestUtilities.Entities
 {
     public class IncomeBuilder
     {
+        public static IList<Income> Collection(User user, uint count = 2)
+        {
+            var incomes = new List<Income>();
+
+            if(count == 0) count = 1;
+
+            var incomeId = 1;
+
+            for(int i = 0; i < count; i++)
+            {
+                var fakeIncome = Build(user);
+                fakeIncome.IncomeId = incomeId++;
+
+                incomes.Add(fakeIncome);
+            }
+
+            return incomes;
+        }
+
         public static Income Build(User user)
         {
             var income = new Faker<Income>()
